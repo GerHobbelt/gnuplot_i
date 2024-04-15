@@ -13,7 +13,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#if !defined(_WIN32)
 #include <unistd.h>
+#endif
 #include <stdarg.h>
 #include <fcntl.h>
 #include <time.h>

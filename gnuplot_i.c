@@ -70,6 +70,7 @@
 #ifdef _WIN32
 #include <windows.h>
 #include <fcntl.h>
+#include <io.h>
 
 /*-------------------------------------------------------------------------*/
 /**
@@ -89,8 +90,8 @@ int mkstemp (char *name) {
   }
   i = open(name, O_RDWR | O_CREAT);
   if (i != -1) {
-    DWORD dwFileAttr = GetFileAttributes(name);
-    SetFileAttributes(name, dwFileAttr & !FILE_ATTRIBUTE_READONLY);
+    DWORD dwFileAttr = GetFileAttributesA(name);
+    SetFileAttributesA(name, dwFileAttr & !FILE_ATTRIBUTE_READONLY);
   }
   return i;
 }

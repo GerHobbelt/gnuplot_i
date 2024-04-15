@@ -9,7 +9,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#if !defined(_WIN32)
 #include <unistd.h>
+#endif
 #include "../gnuplot_i.h"
 
 int main(int argc, char * argv[]) {
